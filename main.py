@@ -7,4 +7,4 @@ from player import Player
 
 game = Gameboard()
 
-print(f"{game.display_gestures}")
+game.display_gestures()

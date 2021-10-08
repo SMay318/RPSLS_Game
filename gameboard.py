@@ -27,8 +27,8 @@ class Gameboard:
     def display_gestures(self):
         print("Available gestures to be played:")
         i = 0
-        for gestures in self.human.gestures:
-            print(f"Press {i} to select {gestures.name} {self.human.gestures}")
+        for gesture in self.human.gestures:
+            print(f"Press {i} to select {gesture}")
             i += 1
         
 

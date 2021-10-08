@@ -1,8 +1,8 @@
 from player import Player
 
 class Ai(Player):
-    def __init__(self,name):
-        self.name = name
+    def __init__(self):
+        self.name = ""
         super().__init__()
 
 
