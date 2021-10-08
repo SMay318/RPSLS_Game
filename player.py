@@ -5,10 +5,10 @@ class Player:
         self.create_gestures()
         
     def create_gestures(self):
-        rock = 0
-        spock = 1
-        paper = 2
-        lizard = 3
-        scissors = 4
+        rock = "rock"
+        spock = "spock"
+        paper = "paper"
+        lizard = "lizard"
+        scissors = "scissors"
 
-        self.gestures.extend([rock, spock,paper,lizard,scissors])
+        self.gestures.extend([rock, spock, paper, lizard, scissors])

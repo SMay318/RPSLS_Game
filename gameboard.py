@@ -25,7 +25,13 @@ class Gameboard:
         pass
 
     def display_gestures(self):
-        pass
+        print("Available gestures to be played:")
+        i = 0
+        for gestures in self.human.gestures:
+            print(f"Press {i} to select {gestures.name} {self.human.gestures}")
+            i += 1
+        
+
 
     def declare_winner(self):
         pass
