@@ -7,4 +7,5 @@ from player import Player
 
 game = Gameboard()
 
-game.display_gestures()
+game.human_pick()
+

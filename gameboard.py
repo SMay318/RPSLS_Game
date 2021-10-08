@@ -16,7 +16,27 @@ class Gameboard:
         pass    
 
     def human_pick(self):
-        pass
+        self.display_gestures()
+        selected_gesture = int(input("Select your gesture: "))
+        if selected_gesture == 0: 
+            print(f"You chose: ROCK")
+            return "Rock"
+        elif selected_gesture == 1: 
+            print(f"You chose: SPOCK")
+            return "Spock"
+        elif selected_gesture == 2: 
+            print(f"You chose: PAPER")
+            return "Paper"
+        elif selected_gesture == 3: 
+            print(f"You chose: LIZARD")
+            return "Lizard"
+        elif selected_gesture == 4: 
+            print(f"You chose: SCISSORS")
+            return "Scissors"
+        else:
+            print("Choose a nuber from 0-4")
+
+            return(self.human_pick)
 
     def ai_pick(self):
         pass
