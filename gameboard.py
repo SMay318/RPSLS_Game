@@ -11,7 +11,7 @@ class Gameboard:
     def run_game(self):
         self.display_welcome()
         self.display_rules()
-        self.game_human_vs_human()
+        self.game_human_vs_ai()
 
         
 
@@ -28,6 +28,7 @@ class Gameboard:
         selected_gesture = int(input("Chose Your Gesture: "))
         if selected_gesture >= 0 and selected_gesture <= 4:
             print("human one Chose: ", self.human.gestures[selected_gesture])
+            return selected_gesture
         else:
             print("Invalid Selection")
             return self.human_one_pick()
@@ -37,6 +38,7 @@ class Gameboard:
         selected_gesture = int(input("Chose Your Gesture: "))
         if selected_gesture >= 0 and selected_gesture <= 4:
             print("human two Chose: ", self.human.gestures[selected_gesture])
+            return selected_gesture
         else:
             print("Invalid Selection")
             return self.human_two_pick()
@@ -52,7 +54,7 @@ class Gameboard:
         human_wins = 0
         ai_wins = 0
         while human_wins < 2 and ai_wins < 2:
-            result = (self.human_pick() - self.ai_pick()) % 5
+            result = (self.human_one_pick() - self.ai_pick()) % 5
             if result == 0:
                 print ("This Round is a Tie")
             elif result <= 2:
@@ -62,7 +64,7 @@ class Gameboard:
                 print("AI Wins This Round!")
                 ai_wins += 1
         if human_wins == 2:
-            print(f"Congrats!")
+            print("Congrats!")
         else:
             print("Congrats AI!")
     
