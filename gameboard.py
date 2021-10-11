@@ -8,7 +8,11 @@ class Gameboard:
         self.ai = Ai()
 
     def run_game(self):
-        pass
+        self.display_welcome()
+        self.display_rules()
+        self.game()
+
+        
 
     def display_rules(self):
         print("Rules for RPSLS: As a user you will pick a gesture from the list of gestures displayed to you. The user or AI will select a gesture as well. \n After both gestures are picked and displayed there will be declared a winner of that round. The best of three rounds will win the game. \n the following combinations for RSPLS are as follows: \n Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, \n Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock. ")
@@ -20,9 +24,11 @@ class Gameboard:
 
     def human_pick(self):
         self.display_gestures()
-        #human_player = input("Please Enter Your Name?")
         selected_gesture = int(input("Chose Your Gesture: "))
-        if selected_gesture != len(self.human.gestures):
+        if selected_gesture >= len(self.human.gestures):
+            print("Choose a number from 0-4")
+            return self.human_pick()
+        else:
             print(f"{self.human.name} Chose: ", self.human.gestures[selected_gesture])
             return selected_gesture
 
@@ -31,6 +37,7 @@ class Gameboard:
         if ai_number != len(self.ai.gestures):
             print("AI Chose: ", self.ai.gestures[ai_number])
             return ai_number
+     
       
     def game(self):
         human_wins = 0
