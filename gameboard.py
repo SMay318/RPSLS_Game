@@ -11,7 +11,8 @@ class Gameboard:
         pass
 
     def display_rules(self):
-        pass
+        print("Rules for RPSLS: As a user you will pick a gesture from the list of gestures displayed to you. The user or AI will select a gesture as well. \n After both gestures are picked and displayed there will be declared a winner of that round. The best of three rounds will win the game. \n the following combinations for RSPLS are as follows: \n Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, \n Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock. ")
+        
 
     def display_welcome(self):
         pass    
@@ -19,46 +20,16 @@ class Gameboard:
     def human_pick(self):
         self.display_gestures()
         selected_gesture = int(input("Select your gesture: "))
-        if selected_gesture == 0: 
-            print("You chose: ROCK")
-            return 0
-        elif selected_gesture == 1: 
-            print("You chose: SPOCK")
-            return 1
-        elif selected_gesture == 2: 
-            print("You chose: PAPER")
-            return 2
-        elif selected_gesture == 3: 
-            print("You chose: LIZARD")
-            return 3
-        elif selected_gesture == 4: 
-            print("You chose: SCISSORS")
-            return 4
-        else:
-            print("Choose a number from 0-4")
-            return (self.human_pick)
+        if selected_gesture != len(self.human.gestures):
+            print("Human chose: ", self.human.gestures[selected_gesture])
+            return selected_gesture
 
     def ai_pick(self):
         ai_number = random.randrange(0,4)
-        if ai_number == 0: 
-            print("AI chose: ROCK")
-            return 0
-        elif ai_number == 1: 
-            print("AI chose: SPOCK")
-            return 1
-        elif ai_number == 2: 
-            print("AI chose: PAPER")
-            return 2
-        elif ai_number == 3: 
-            print("AI chose: LIZARD")
-            return 3
-        elif ai_number == 4: 
-            print("AI chose: SCISSORS")
-            return 4
-       #print(f"AI chose  + {ai_number}")
-       # ai_number = self.display_gestures(ai_rand)
-        #print(ai_number)
-        
+        if ai_number != len(self.ai.gestures):
+            print("AI chose: ", self.ai.gestures[ai_number])
+            return ai_number
+      
     def game(self):
         human_wins = 0
         ai_wins = 0
@@ -75,7 +46,7 @@ class Gameboard:
         if human_wins == 2:
             print("Congrats Human!")
         else:
-            print("congrats AI")
+            print("Congrats AI!")
                 
 
     def display_gestures(self):
@@ -87,8 +58,7 @@ class Gameboard:
         
 
 
-    def declare_winner(self):
-        pass
+  
 
         
 

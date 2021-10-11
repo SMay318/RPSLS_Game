@@ -10,4 +10,5 @@ game = Gameboard()
 # game.human_pick()
 
 # game.ai_pick()
+game.display_rules()
 game.game()
