@@ -1,5 +1,6 @@
 from human import Human
 from ai import Ai
+import random
 
 class Gameboard:
     def __init__(self):
@@ -39,10 +40,28 @@ class Gameboard:
             return(self.human_pick)
 
     def ai_pick(self):
-        pass
-
+        ai_number = random.randrange(0,4)
+        if ai_number == 0: 
+            print(f"AI chose: ROCK")
+            return "Rock"
+        elif ai_number == 1: 
+            print(f"AI chose: SPOCK")
+            return "Spock"
+        elif ai_number == 2: 
+            print(f"AI chose: PAPER")
+            return "Paper"
+        elif ai_number == 3: 
+            print(f"AI chose: LIZARD")
+            return "Lizard"
+        elif ai_number == 4: 
+            print(f"AI chose: SCISSORS")
+            return "Scissors"
+       #print(f"AI chose  + {ai_number}")
+       # ai_number = self.display_gestures(ai_rand)
+        #print(ai_number)
+        
     def game(self):
-        pass
+       pass
 
     def display_gestures(self):
         print("Available gestures to be played:")
