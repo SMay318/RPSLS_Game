@@ -68,10 +68,15 @@ class Gameboard:
                 print ("this round is a tie")
             elif result <= 2:
                 print("human wins this round!")
-                human_wins += 1 
+                human_wins += 1
             elif result >= 3:
                 print("AI wins this round!")
                 ai_wins += 1
+        if human_wins == 2:
+            print("Congrats Human!")
+        else:
+            print("congrats AI")
+                
 
     def display_gestures(self):
         print("Available gestures to be played:")
@@ -84,5 +89,6 @@ class Gameboard:
 
     def declare_winner(self):
         pass
+
         
 
