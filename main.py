@@ -7,7 +7,7 @@ from player import Player
 
 game = Gameboard()
 
-game.human_pick()
+# game.human_pick()
 
-game.ai_pick()
+# game.ai_pick()
 game.game()
