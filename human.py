@@ -2,7 +2,7 @@ from player import Player
 
 class Human(Player):
     def __init__(self):
-        self.name = input ("Enter your Name:")
+        self.name = ""
         super().__init__()
 
     def __str__(self) -> str:

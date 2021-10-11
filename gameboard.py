@@ -2,6 +2,7 @@ from human import Human
 from ai import Ai
 import random
 
+
 class Gameboard:
     def __init__(self):
         self.human = Human()
@@ -10,7 +11,7 @@ class Gameboard:
     def run_game(self):
         self.display_welcome()
         self.display_rules()
-        self.game()
+        self.game_human_vs_human()
 
         
 
@@ -22,15 +23,23 @@ class Gameboard:
        print("WELCOME TO RPSLS")
        
 
-    def human_pick(self):
+    def human_one_pick(self): 
         self.display_gestures()
         selected_gesture = int(input("Chose Your Gesture: "))
-        if selected_gesture >= len(self.human.gestures):
-            print("Choose a number from 0-4")
-            return self.human_pick()
+        if selected_gesture >= 0 and selected_gesture <= 4:
+            print("human one Chose: ", self.human.gestures[selected_gesture])
         else:
-            print(f"{self.human.name} Chose: ", self.human.gestures[selected_gesture])
-            return selected_gesture
+            print("Invalid Selection")
+            return self.human_one_pick()
+    
+    def human_two_pick(self):
+        self.display_gestures()
+        selected_gesture = int(input("Chose Your Gesture: "))
+        if selected_gesture >= 0 and selected_gesture <= 4:
+            print("human two Chose: ", self.human.gestures[selected_gesture])
+        else:
+            print("Invalid Selection")
+            return self.human_two_pick()
 
     def ai_pick(self):
         ai_number = random.randrange(0,4)
@@ -39,7 +48,7 @@ class Gameboard:
             return ai_number
      
       
-    def game(self):
+    def game_human_vs_ai(self):
         human_wins = 0
         ai_wins = 0
         while human_wins < 2 and ai_wins < 2:
@@ -47,15 +56,33 @@ class Gameboard:
             if result == 0:
                 print ("This Round is a Tie")
             elif result <= 2:
-                print(f"{self.human.name} Wins This Round!")
+                print("Wins This Round!")
                 human_wins += 1
             elif result >= 3:
                 print("AI Wins This Round!")
                 ai_wins += 1
         if human_wins == 2:
-            print(f"Congrats {self.human.name}!")
+            print(f"Congrats!")
         else:
             print("Congrats AI!")
+    
+    def game_human_vs_human(self):
+        human_one_wins = 0
+        human_two_wins = 0
+        while human_one_wins < 2 and human_two_wins < 2:
+            result = (self.human_one_pick() - self.human_two_pick()) % 5
+            if result == 0:
+                print ("This Round is a Tie")
+            elif result <= 2:
+                print("Human one Wins This Round!")
+                human_one_wins += 1
+            elif result >= 3:
+                print("Human two Wins This Round!")
+                human_two_wins += 1
+        if human_one_wins == 2:
+            print("Congrats Human One!")
+        else:
+            print("Congrats Human two!")
                 
 
     def display_gestures(self):

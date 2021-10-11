@@ -3,4 +3,4 @@ from gameboard import Gameboard
 
 game = Gameboard()
 
-game.run_game()
+game.game_human_vs_human()
