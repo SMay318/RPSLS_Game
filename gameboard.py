@@ -15,19 +15,21 @@ class Gameboard:
         
 
     def display_welcome(self):
-        pass    
+       print("WELCOME TO RPSLS")
+       
 
     def human_pick(self):
         self.display_gestures()
-        selected_gesture = int(input("Select your gesture: "))
+        #human_player = input("Please Enter Your Name?")
+        selected_gesture = int(input("Chose Your Gesture: "))
         if selected_gesture != len(self.human.gestures):
-            print("Human chose: ", self.human.gestures[selected_gesture])
+            print(f"{self.human.name} Chose: ", self.human.gestures[selected_gesture])
             return selected_gesture
 
     def ai_pick(self):
         ai_number = random.randrange(0,4)
         if ai_number != len(self.ai.gestures):
-            print("AI chose: ", self.ai.gestures[ai_number])
+            print("AI Chose: ", self.ai.gestures[ai_number])
             return ai_number
       
     def game(self):
@@ -36,15 +38,15 @@ class Gameboard:
         while human_wins < 2 and ai_wins < 2:
             result = (self.human_pick() - self.ai_pick()) % 5
             if result == 0:
-                print ("this round is a tie")
+                print ("This Round is a Tie")
             elif result <= 2:
-                print("human wins this round!")
+                print(f"{self.human.name} Wins This Round!")
                 human_wins += 1
             elif result >= 3:
-                print("AI wins this round!")
+                print("AI Wins This Round!")
                 ai_wins += 1
         if human_wins == 2:
-            print("Congrats Human!")
+            print(f"Congrats {self.human.name}!")
         else:
             print("Congrats AI!")
                 
