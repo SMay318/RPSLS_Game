@@ -15,11 +15,11 @@ class Gameboard:
         if player_input == 1:
             self.player_one.name = input("Enter Player One name: ")
             self.player_two.name = input("Enter Player Two name: ")
-            return self.game_human_vs_game()
+            return self.game()
         elif player_input == 2:
             self.player_one.name = input("Enter Player One name: ")
             self.player_two = Ai()
-            return self.game_human_vs_game()
+            return self.game()
         else:
             return self.run_game()
         
@@ -35,7 +35,7 @@ class Gameboard:
     def display_welcome(self):
        print("WELCOME TO RPSLS")
       
-    def game_human_vs_game(self):
+    def game(self):
         while self.player_one.wins < 2 and self.player_two.wins < 2:
             result = (self.player_one.choose_gesture() - self.player_two.choose_gesture()) % 5
             if result == 0:
