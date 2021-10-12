@@ -21,16 +21,15 @@ class Gameboard:
             self.human = Human(input("Enter Player One name: "))
             return self.game_human_vs_ai()
         else:
-            return player_input
-
-
-            
-        
-
+            return self.run_game()
         
 
     def display_rules(self):
-        print("Rules for RPSLS: As a user you will pick a gesture from the list of gestures displayed to you. The user or AI will select a gesture as well. \n After both gestures are picked and displayed there will be declared a winner of that round. The best of three rounds will win the game. \n the following combinations for RSPLS are as follows: \n Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Lizard poisons Spock, \n Spock smashes Scissors, Scissors decapitates Lizard, Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock. ")
+        print(""" Rules for RPSLS: As a user you will pick a gesture from the list of gestures displayed to you. The user or AI will select a gesture as well. 
+        \n After both gestures are picked and displayed there will be declared a winner of that round. The best of three rounds will win the game. 
+        \n The following combinations for RSPLS are as follows: 
+        \n Rock Crushes Scissors, Scissors Cuts Paper, Paper Covers Rock, Rock Crushes Lizard, Lizard Poisons Spock, 
+        \n Spock Smashes Scissors, Scissors Decapitates Lizard, Lizard Eats Paper, Paper Disproves Spock, Spock Vaporizes Rock. """)
         
 
     def display_welcome(self):
