@@ -16,9 +16,9 @@ class Player:
 
     def choose_gesture(self):
         self.display_gestures()
-        selected_gesture = int(input(f"Chose Your Gesture human one: "))
+        selected_gesture = int(input(f"Chose Your Gesture: "))
         if selected_gesture >= 0 and selected_gesture <= 4:
-            print(f"Human one Chose: ", self.gestures[selected_gesture])
+            print(f"Chose: ", self.gestures[selected_gesture])
             return selected_gesture
         else:
             print("Invalid Selection")

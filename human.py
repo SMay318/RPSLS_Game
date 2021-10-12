@@ -8,4 +8,4 @@ class Human(Player):
     def __str__(self) -> str:
         return f"Player - {self.name}"
     
-   
+    
