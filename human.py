@@ -1,7 +1,7 @@
 from player import Player
 
 class Human(Player):
-    def __init__(self, name):
+    def __init__(self,name):
         self.name = name
         self.wins = 0
         super().__init__()

@@ -6,7 +6,7 @@ class Gameboard:
     def __init__(self):
         self.ai = Ai()
         self.player_one = Human('')
-        self.player_two = Human('')
+        self.player_two = Human('') 
 
     def run_game(self):
         self.display_welcome()
@@ -15,8 +15,6 @@ class Gameboard:
         if player_input == 1:
             self.player_one.name = input("Enter Player One name: ")
             self.player_two.name = input("Enter Player Two name: ")
-            print(f"{self.player_one.name}")
-            print(f"{self.player_two.name}")
             return self.game_human_vs_human()
         elif player_input == 2:
             self.player_one.name = input("Enter Player One name: ")
