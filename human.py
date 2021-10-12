@@ -7,6 +7,6 @@ class Human(Player):
         super().__init__()
 
     def __str__(self) -> str:
-        return f"Player - {self.name}"
+        return f"{self.name}"
     
   
