@@ -23,6 +23,7 @@ class Gameboard:
             return self.game_human_vs_ai()
         else:
             return self.run_game()
+        
 
     def display_rules(self):
         print(""" Rules for RPSLS: As a user you will pick a gesture from the list of gestures displayed to you. The user or AI will select a gesture as well. 
@@ -30,7 +31,8 @@ class Gameboard:
         \n The following combinations for RSPLS are as follows: 
         \n Rock Crushes Scissors, Scissors Cuts Paper, Paper Covers Rock, Rock Crushes Lizard, Lizard Poisons Spock, 
         \n Spock Smashes Scissors, Scissors Decapitates Lizard, Lizard Eats Paper, Paper Disproves Spock, Spock Vaporizes Rock. """)
-    
+        
+
     def display_welcome(self):
        print("WELCOME TO RPSLS")
        
