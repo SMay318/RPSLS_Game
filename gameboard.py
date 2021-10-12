@@ -5,13 +5,27 @@ import random
 
 class Gameboard:
     def __init__(self):
-        self.human = Human()
         self.ai = Ai()
 
     def run_game(self):
         self.display_welcome()
         self.display_rules()
-        self.game_human_vs_ai()
+        player_input = int(input("Press 1 to play multiplayer or 2 to play against the computer."))
+        if player_input == 1:
+            self.human = Human(input("Enter Player One name: "))
+            self.human2 = Human(input("Enter Player Two name: "))
+            print(f"{self.human}")
+            print(f"{self.human2}")
+            return self.game_human_vs_human()
+        elif player_input == 2:
+            self.human = Human(input("Enter Player One name: "))
+            return self.game_human_vs_ai()
+        else:
+            return player_input
+
+
+            
+        
 
         
 
@@ -25,9 +39,9 @@ class Gameboard:
 
     def human_one_pick(self): 
         self.display_gestures()
-        selected_gesture = int(input("Chose Your Gesture: "))
+        selected_gesture = int(input(f"Chose Your Gesture {self.human}: "))
         if selected_gesture >= 0 and selected_gesture <= 4:
-            print("human one Chose: ", self.human.gestures[selected_gesture])
+            print(f"{self.human} Chose: ", self.human.gestures[selected_gesture])
             return selected_gesture
         else:
             print("Invalid Selection")
@@ -35,9 +49,9 @@ class Gameboard:
     
     def human_two_pick(self):
         self.display_gestures()
-        selected_gesture = int(input("Chose Your Gesture: "))
+        selected_gesture = int(input(f"Chose Your Gesture {self.human2}: "))
         if selected_gesture >= 0 and selected_gesture <= 4:
-            print("human two Chose: ", self.human.gestures[selected_gesture])
+            print(f"{self.human2} Chose: ", self.human.gestures[selected_gesture])
             return selected_gesture
         else:
             print("Invalid Selection")
@@ -58,13 +72,13 @@ class Gameboard:
             if result == 0:
                 print ("This Round is a Tie")
             elif result <= 2:
-                print("Wins This Round!")
+                print(f"{self.human} Wins This Round!")
                 human_wins += 1
             elif result >= 3:
                 print("AI Wins This Round!")
                 ai_wins += 1
         if human_wins == 2:
-            print("Congrats!")
+            print(f"Congrats {self.human}!")
         else:
             print("Congrats AI!")
     
@@ -76,15 +90,15 @@ class Gameboard:
             if result == 0:
                 print ("This Round is a Tie")
             elif result <= 2:
-                print("Human one Wins This Round!")
+                print(f"{self.human} Wins This Round!")
                 human_one_wins += 1
             elif result >= 3:
-                print("Human two Wins This Round!")
+                print(f"{self.human2} Wins This Round!")
                 human_two_wins += 1
         if human_one_wins == 2:
-            print("Congrats Human One!")
+            print(f"Congrats {self.human}!")
         else:
-            print("Congrats Human two!")
+            print(f"Congrats {self.human2}!")
                 
 
     def display_gestures(self):
